@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Айдай Қыз Ұзату</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #151b3d;
+            --gold: #d4af37;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%), 
+                linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.02) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.02) 75%);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 10px 0;
+        }
+
+        .hero-img {
+            width: 100%;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--gold);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        .time-box p {
+            font-size: 10px;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 35px;
+            border: none;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #f1c40f, #d4af37);
+            color: #1a1a1a;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 80%;
+            padding: 12px;
+            margin: 5px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.07);
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-pattern"></div>
+
+<div class="container">
+    <header>
+        <p style="color: var(--gold)">⚜️ ⚜️ ⚜️</p>
+        <h1>Қамажай</h1>
+        <h2>Қыз Ұзату</h2>
+        <p style="font-style: italic; opacity: 0.8;">Ұядан ұшқан күн!</p>
+    </header>
+
+    <img src="bride.jpeg" class="hero-img" alt="Bride">
+
+    <div class="info-card">
+        <h3 style="color: var(--gold)">ҚҰРМЕТТІ ҚОНАҚТАР!</h3>
+        <p>Сіздерді қызымыз <b> Қамажай</b> ұзату тойына арналған салтанатты дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
+        <p>Той иелері: <br> <b style="color: var(--gold)">Асан & Айгүл</b></p>
+    </div>
+
+    <div class="info-card">
+        <p>📅 06 Маусым 2026</p>
+        <p>⏰ 18:00</p>
+        <p>📍 "Millennium" мейрамханасы</p>
+    </div>
+
+    <h4 style="color: var(--gold)">САЛТАНАТҚА ДЕЙІН:</h4>
+    <div class="countdown">
+        <div class="time-box"><span id="d">00</span><p>КҮН</p></div>
+        <div class="time-box"><span id="h">00</span><p>САҒАТ</p></div>
+        <div class="time-box"><span id="m">00</span><p>МИНУТ</p></div>
+        <div class="time-box"><span id="s">00</span><p>СЕКУНД</p></div>
+    </div>
+
+    <div class="rsvp">
+        <h3>Тойға келесіз бе?</h3>
+        <button class="btn btn-gold" onclick="alert('Рахмет! Сізді күтеміз!')">ИӘ, КЕЛЕМІН! ✓</button>
+        <button class="btn btn-outline" onclick="alert('Хабарласқаныңызға рахмет!')">ӨКІНІШКЕ ОРАЙ, КЕЛЕ АЛМАЙМЫН</button>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <p style="font-size: 13px;">Сұрақтар бойынша жазыңыз:</p>
+        <a href="#" class="social-link">WhatsApp</a>
+        <a href="#" class="social-link">Instagram</a>
+    </div>
+
+    <footer style="margin: 50px 0 20px; font-size: 11px; opacity: 0.5;">
+        © 2026 Айдай Қыз Ұзату | Барлық құқықтар қорғалған
+    </footer>
+</div>
+
+<script>
+    const targetDate = new Date("June 6, 2026 18:00:00").getTime();
+
+    setInterval(() => {
+        const now = new Date().getTime();
+        const diff = targetDate - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById("d").innerText = days;
+        document.getElementById("h").innerText = hours;
+        document.getElementById("m").innerText = minutes;
+        document.getElementById("s").innerText = seconds;
+    }, 1000);
+</script>
+
+</body>
+</html>
